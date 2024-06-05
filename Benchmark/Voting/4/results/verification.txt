@@ -1,0 +1,25 @@
+
+Compiling your contracts...
+===========================
+> Compiling ./contracts/Migrations.sol
+> Compiling ./contracts/Verifier.sol
+> Compilation warnings encountered:
+
+    Warning: SPDX license identifier not provided in source file. Before publishing, consider adding a comment containing "SPDX-License-Identifier: <SPDX-License>" to each source file. Use "SPDX-License-Identifier: UNLICENSED" for non-open-source code. Please see https://spdx.org for more information.
+--> project:/contracts/Verifier.sol
+
+
+> Artifacts written to /tmp/test--5799-p9bzlnRwFFS3
+> Compiled successfully using:
+   - solc: 0.8.0+commit.c7dfd78e.Emscripten.clang
+Gas used: 1214480
+
+[0m[0m
+[0m  Contract: Verifier[0m
+  [32m  ✔[0m[90m loads proof[0m
+  [32m  ✔[0m[90m returns true from zok[0m
+  [32m  ✔[0m[90m verifies proof[0m[31m (1319ms)[0m
+
+
+[92m [0m[32m 3 passing[0m[90m (2s)[0m
+

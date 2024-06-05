@@ -1,0 +1,70 @@
+import "hashes/sha256/512bitPadded.code" as sha256;
+from "ecc/babyjubjubParams" import BabyJubJubParams;
+import "signatures/verifyEddsa.code" as verifyEddsa;
+import "ecc/babyjubjubParams.code" as context;
+import "hashes/utils/256bitsDirectionHelper" as multiplex;
+
+/// Arguments:
+///    R: Curve point. Hidden version of the per-message nonce.
+///    S: Field element. Signature to be verified. Our Signature is the hash of the VC + the corresponding AttrID
+///    A: Curve point. Public part of the key used to create S.
+///    M0: 256bit array. First 256bits of the message used to create S  .
+///    M1: 256bit array. Trailing 256bits of the message used to create S  .
+///    context: Curve parameters used to create S.
+///    attr: is the Attribute ID 
+///    vc: Verifiabel Credential
+///    min: lower limit for range check 
+///    max: upper limit for range check
+///    minimumDateOfBirth: Minimum Date of Birth
+
+
+const u32 DEPTH = 3;
+
+def select(bool condition, u32[8] left, u32[8] right) -> (u32[8], u32[8]){
+	return (if condition { right} else {left}, if condition {left} else {right});
+}
+
+def main(public u32 [8] dappId1, u32 [8] attr1, private u32 [8] vc1, private field[2] R1, private field S1, field[2] A1, u32[8] M01, u32[8] M11, private u32[8] leaf, u32[8] root, private bool[DEPTH] directionSelector, private u32[DEPTH][8] path, private field[2] R2, private field S2, field[2] A2, u32[8] M02, u32[8] M12 ) -> (bool, u32[8]){
+    //Verify Signature (R,S) with PupKey (A) on Hash (M0, M1)
+	BabyJubJubParams context = context();
+    bool isVerified1 = verifyEddsa(R1, S1, A1, M01, M11, context);
+    u32[8] hash1 = sha256(attr1, vc1);
+    bool hashcheck1 = hash1 == M01;
+
+    bool isVerified2 = verifyEddsa(R2, S2, A2, M02, M12, context);
+    u32[8] hash2 = sha256([0, 0, 0, 0, 0, 0, 0, 0], leaf);
+    bool hashcheck2 = hash2 == M02;
+
+    //Set-membership Proof
+
+    u32[8] mut digest = leaf;
+
+	// Loop up the tree
+	for u32 i in 0..DEPTH{
+		(u32[8], u32[8]) left_right = select(directionSelector[i], digest, path[i]);
+		digest = sha256(left_right.0,left_right.1);
+	}
+
+	bool inSet = digest == root;
+
+    // Uniqueness Proof: ID Generation 
+    u32[8] finalId1 = sha256(hash1, dappId1);
+
+    // Check the correct Attribute ID 
+    u32 [8] attr_required_Tax_num = [0,0,0,0,0,0,0,69] ;
+
+    bool correct_atrr_id_Tax_num = attr1 == attr_required_Tax_num ;
+
+    bool isVerifieds = isVerified1 && isVerified2; 
+    bool hashchecks = hashcheck1 && hashcheck2;
+    bool insets = inSet ;
+
+
+
+    bool r = isVerifieds && hashchecks && correct_atrr_id_Tax_num && insets;
+
+    //, finalId1
+
+    return (r, finalId1); 
+}
+

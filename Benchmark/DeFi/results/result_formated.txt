@@ -1,0 +1,5 @@
+useCase,value_checks,timestamp,gas_call,witness_s,setup_s,proof_s,compiled_size,proving_key_size,verification_key_size,constraints
+DeFi,2,1717177542,731727,12,26,19,1.2,170,12,452437
+DeFi,4,1717177806,1206075,24,58,47,2.3,339,20,904808
+DeFi,6,1717178169,,35,85,64,3.4,540,28,1357081
+DeFi,8,1717178652,,45,100,79,4.2,626,36,1641110

@@ -1,0 +1,4 @@
+Compiling verify.zok
+
+Compiled code written to '/mnt/c/users/mike1/Desktop/Masterarbeit/Code/Smart_Contracts/Benchmark/Marketplace/6/artifacts/out'
+Number of constraints: 1522187

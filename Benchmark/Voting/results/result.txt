@@ -1,0 +1,5 @@
+useCase,value_checks, timestamp,gas_call,witness_s,setup_s,proof_s,compiled_size,proving_key_size,verification_key_size, constraints
+Voting,2,1717176407,              740426  , 8,      17,   0   15,        789M,       119M,     12K,                286456       
+Voting,4,1717176590,              1214480, 16,       34,      30,        1.6G,       238M,     20K,                572777	
+Voting,6,1717176842,                      , 25,      55,      42,        2.4G,       325M,     28K,                859170	
+Voting,8,1717177181, ,                      37,       78,      63,        3.2G,      476M,      36K,               1145527	

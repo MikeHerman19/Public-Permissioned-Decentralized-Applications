@@ -1,0 +1,60 @@
+import "hashes/sha256/512bitPadded.code" as sha256;
+from "ecc/babyjubjubParams" import BabyJubJubParams;
+import "signatures/verifyEddsa.code" as verifyEddsa;
+import "ecc/babyjubjubParams.code" as context;
+
+
+/// Arguments:
+///    R: Curve point. Hidden version of the per-message nonce.
+///    S: Field element. Signature to be verified. Our Signature is the hash of the VC + the corresponding AttrID
+///    A: Curve point. Public part of the key used to create S.
+///    M0: 256bit array. First 256bits of the message used to create S  .
+///    M1: 256bit array. Trailing 256bits of the message used to create S  .
+///    context: Curve parameters used to create S.
+///    attr: is the Attribute ID 
+///    vc: Verifiabel Credential
+///    min: lower limit for range check 
+///    max: upper limit for range check
+///    minimumDateOfBirth: Minimum Date of Birth
+
+
+def main(u32 min, u32 max, u32 minimumDateOfBirth, u32 [8] attr1, private u32 [8] vc1, private field[2] R1, private field S1, field[2] A1, u32[8] M01, u32[8] M11,u32 [8] attr2, private u32 [8] vc2, private field[2] R2, private field S2, field[2] A2, u32[8] M02, u32[8] M12  ) -> bool{
+    //Verify Signature (R,S) with PupKey (A) on Hash (M0, M1)
+	BabyJubJubParams context = context();
+    bool isVerified1 = verifyEddsa(R1, S1, A1, M01, M11, context);
+    u32[8] hash1 = sha256(attr1, vc1);
+    // M0 is the first 32 bytes of sha256(input 1 || vc) || sha256(attr || vc)
+    bool hashcheck1 = hash1 == M01;
+
+    bool isVerified2 = verifyEddsa(R2, S2, A2, M02, M12, context);
+    u32[8] hash2 = sha256(attr2, vc2);
+    // M0 is the first 32 bytes of sha256(input 1 || vc) || sha256(attr || vc)
+    bool hashcheck2 = hash2 == M02;
+
+    //Time-dependent Proofs
+
+    bool dobBirth1 = if minimumDateOfBirth > vc2[7] {true} else {false};
+
+    // Range Proofs
+
+    bool rangeCheck1 = vc1[7] >= min && vc1[7] <= max;
+
+    // Check the correct Attribute ID 
+    u32 [8] attr_required_zip = [0,0,0,0,0,0,0,9] ;
+    u32 [8] attr_required_age = [0,0,0,0,0,0,0,24] ;
+
+    bool correct_atrr_id_zip = attr1 == attr_required_zip ;
+    bool correct_atrr_id_age = attr2 == attr_required_age ;
+
+    bool attr_id_checks = correct_atrr_id_zip && correct_atrr_id_age;
+    bool dobBirths = dobBirth1 ;
+    bool rangeChecks = rangeCheck1;
+    bool isVerifieds = isVerified1 && isVerified2; 
+    bool hashchecks = hashcheck1 && hashcheck2; 
+
+
+
+    bool r = isVerifieds && hashchecks && rangeChecks && dobBirths && attr_id_checks;
+
+    return r;
+}

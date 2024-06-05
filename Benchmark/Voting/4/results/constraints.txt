@@ -1,0 +1,4 @@
+Compiling verify.zok
+
+Compiled code written to '/mnt/c/users/mike1/Desktop/Masterarbeit/Code/Smart_Contracts/Benchmark/Voting/4/artifacts/out'
+Number of constraints: 572777

@@ -1,0 +1,5 @@
+useCase,value_checks, timestamp,gas_call,witness_s,setup_s,proof_s,compiled_size,proving_key_size,verification_key_size, constraints
+Marketplace,2,1717182247,        858769,    17,      33,     26,      1.7G,         187M,                 16K,            507969
+Marketplace,4,1717182555, ,                 35,      66,     52,      3.3G,         373M,                 24K,            1015078
+Marketplace,6,1717184080, ,                 63,      127,    111,     5.0G,         590M,                 32K,            1522187
+Marketplace,8,1717185230, ,                 131,     154,    123,     6.2G,         693M,                 44K,            1860880
