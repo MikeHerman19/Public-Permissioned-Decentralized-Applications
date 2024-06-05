@@ -1,0 +1,539 @@
+{
+  "contractName": "IPolicyStorage",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "bytes4",
+          "name": "_funcId",
+          "type": "bytes4"
+        }
+      ],
+      "name": "getPolicyEntry",
+      "outputs": [
+        {
+          "internalType": "int256[]",
+          "name": "",
+          "type": "int256[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.0+commit.c7dfd78e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"bytes4\",\"name\":\"_funcId\",\"type\":\"bytes4\"}],\"name\":\"getPolicyEntry\",\"outputs\":[{\"internalType\":\"int256[]\",\"name\":\"\",\"type\":\"int256[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/test.sol\":\"IPolicyStorage\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/test.sol\":{\"keccak256\":\"0x85ebad9e934fd80a926d5287d9807b86d59c63991be93f8439805db07a8c692b\",\"urls\":[\"bzz-raw://be8ba93b30a4f80f1d59aa5df33d8c991ce054f7be1fba4b333835f100f27fd1\",\"dweb:/ipfs/QmdSNA5kcU6WLi2XusnMEgBbv7NjdgroJrkn84pvdFMsZB\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "pragma solidity ^0.8.0;\r\n\r\n\r\ninterface IPolicyStorage {\r\n    function getPolicyEntry(bytes4 _funcId) external view returns (int[] memory);\r\n}\r\n\r\n\r\ncontract Test_Contract {\r\n\r\n\r\n\r\n\r\n    IPolicyStorage public policyStorage; \r\n    //IAttributeStorage attributeStorage; \r\n\r\n    //enum RuleEvaluation { DENY, PERMIT, NOTAPPLICABLE, INDETERMINATE }\r\n\r\n\r\n    constructor(address _policyContractAddress) {\r\n        //owner = msg.sender;\r\n        policyStorage = IPolicyStorage(_policyContractAddress);\r\n\r\n    }\r\n\r\n    function useGetPolicyEntry(bytes4 _funcId) public view returns (int[] memory) {\r\n        return policyStorage.getPolicyEntry(_funcId);\r\n    }\r\n\r\n}",
+  "sourcePath": "C:\\Users\\mike1\\Desktop\\Masterarbeit\\Code\\Smart_Contracts\\contracts\\test.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/test.sol",
+    "exportedSymbols": {
+      "IPolicyStorage": [
+        917
+      ],
+      "Test_Contract": [
+        947
+      ]
+    },
+    "id": 948,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 908,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:6"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "fullyImplemented": false,
+        "id": 917,
+        "linearizedBaseContracts": [
+          917
+        ],
+        "name": "IPolicyStorage",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "functionSelector": "5008a8dd",
+            "id": 916,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getPolicyEntry",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 911,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 910,
+                  "mutability": "mutable",
+                  "name": "_funcId",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 916,
+                  "src": "85:14:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes4",
+                    "typeString": "bytes4"
+                  },
+                  "typeName": {
+                    "id": 909,
+                    "name": "bytes4",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "85:6:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes4",
+                      "typeString": "bytes4"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "84:16:6"
+            },
+            "returnParameters": {
+              "id": 915,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 914,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 916,
+                  "src": "124:12:6",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_int256_$dyn_memory_ptr",
+                    "typeString": "int256[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 912,
+                      "name": "int",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "124:3:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_int256",
+                        "typeString": "int256"
+                      }
+                    },
+                    "id": 913,
+                    "nodeType": "ArrayTypeName",
+                    "src": "124:5:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_int256_$dyn_storage_ptr",
+                      "typeString": "int256[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "123:14:6"
+            },
+            "scope": 917,
+            "src": "61:77:6",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 948,
+        "src": "29:112:6"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "id": 947,
+        "linearizedBaseContracts": [
+          947
+        ],
+        "name": "Test_Contract",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "functionSelector": "599fe9ec",
+            "id": 920,
+            "mutability": "mutable",
+            "name": "policyStorage",
+            "nodeType": "VariableDeclaration",
+            "scope": 947,
+            "src": "185:35:6",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_IPolicyStorage_$917",
+              "typeString": "contract IPolicyStorage"
+            },
+            "typeName": {
+              "id": 919,
+              "nodeType": "UserDefinedTypeName",
+              "pathNode": {
+                "id": 918,
+                "name": "IPolicyStorage",
+                "nodeType": "IdentifierPath",
+                "referencedDeclaration": 917,
+                "src": "185:14:6"
+              },
+              "referencedDeclaration": 917,
+              "src": "185:14:6",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_IPolicyStorage_$917",
+                "typeString": "contract IPolicyStorage"
+              }
+            },
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 931,
+              "nodeType": "Block",
+              "src": "396:106:6",
+              "statements": [
+                {
+                  "expression": {
+                    "id": 929,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "id": 925,
+                      "name": "policyStorage",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 920,
+                      "src": "438:13:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_IPolicyStorage_$917",
+                        "typeString": "contract IPolicyStorage"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "arguments": [
+                        {
+                          "id": 927,
+                          "name": "_policyContractAddress",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 922,
+                          "src": "469:22:6",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        ],
+                        "id": 926,
+                        "name": "IPolicyStorage",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 917,
+                        "src": "454:14:6",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_contract$_IPolicyStorage_$917_$",
+                          "typeString": "type(contract IPolicyStorage)"
+                        }
+                      },
+                      "id": 928,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "typeConversion",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "454:38:6",
+                      "tryCall": false,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_IPolicyStorage_$917",
+                        "typeString": "contract IPolicyStorage"
+                      }
+                    },
+                    "src": "438:54:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IPolicyStorage_$917",
+                      "typeString": "contract IPolicyStorage"
+                    }
+                  },
+                  "id": 930,
+                  "nodeType": "ExpressionStatement",
+                  "src": "438:54:6"
+                }
+              ]
+            },
+            "id": 932,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 923,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 922,
+                  "mutability": "mutable",
+                  "name": "_policyContractAddress",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 932,
+                  "src": "364:30:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 921,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "364:7:6",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "363:32:6"
+            },
+            "returnParameters": {
+              "id": 924,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "396:0:6"
+            },
+            "scope": 947,
+            "src": "352:150:6",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 945,
+              "nodeType": "Block",
+              "src": "588:63:6",
+              "statements": [
+                {
+                  "expression": {
+                    "arguments": [
+                      {
+                        "id": 942,
+                        "name": "_funcId",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 934,
+                        "src": "635:7:6",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes4",
+                          "typeString": "bytes4"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bytes4",
+                          "typeString": "bytes4"
+                        }
+                      ],
+                      "expression": {
+                        "id": 940,
+                        "name": "policyStorage",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 920,
+                        "src": "606:13:6",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_IPolicyStorage_$917",
+                          "typeString": "contract IPolicyStorage"
+                        }
+                      },
+                      "id": 941,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "getPolicyEntry",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 916,
+                      "src": "606:28:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_external_view$_t_bytes4_$returns$_t_array$_t_int256_$dyn_memory_ptr_$",
+                        "typeString": "function (bytes4) view external returns (int256[] memory)"
+                      }
+                    },
+                    "id": 943,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "606:37:6",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_int256_$dyn_memory_ptr",
+                      "typeString": "int256[] memory"
+                    }
+                  },
+                  "functionReturnParameters": 939,
+                  "id": 944,
+                  "nodeType": "Return",
+                  "src": "599:44:6"
+                }
+              ]
+            },
+            "functionSelector": "38facd8e",
+            "id": 946,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "useGetPolicyEntry",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 935,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 934,
+                  "mutability": "mutable",
+                  "name": "_funcId",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 946,
+                  "src": "537:14:6",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes4",
+                    "typeString": "bytes4"
+                  },
+                  "typeName": {
+                    "id": 933,
+                    "name": "bytes4",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "537:6:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes4",
+                      "typeString": "bytes4"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "536:16:6"
+            },
+            "returnParameters": {
+              "id": 939,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 938,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 946,
+                  "src": "574:12:6",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_int256_$dyn_memory_ptr",
+                    "typeString": "int256[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 936,
+                      "name": "int",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "574:3:6",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_int256",
+                        "typeString": "int256"
+                      }
+                    },
+                    "id": 937,
+                    "nodeType": "ArrayTypeName",
+                    "src": "574:5:6",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_int256_$dyn_storage_ptr",
+                      "typeString": "int256[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "573:14:6"
+            },
+            "scope": 947,
+            "src": "510:141:6",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "public"
+          }
+        ],
+        "scope": 948,
+        "src": "147:509:6"
+      }
+    ],
+    "src": "0:656:6"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.0+commit.c7dfd78e.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.16",
+  "updatedAt": "2024-06-02T20:50:04.563Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}

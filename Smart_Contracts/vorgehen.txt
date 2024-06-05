@@ -1,0 +1,8 @@
+truffle compile
+
+truffle migrate --network development
+
+
+truffle exec scripts/test1.js --network development
+
+

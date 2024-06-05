@@ -1,0 +1,80 @@
+1_inital_Migration.js
+=====================
+
+   Replacing 'VPR_Registry_Contract'
+   ---------------------------------
+
+   > gas used:            745243 (0xb5f1b)
+
+
+
+   Replacing 'Policy_Storage_Contract'
+   -----------------------------------
+
+   > gas used:            493878 (0x78936)
+
+
+
+   Replacing 'Attribute_Storage_Contract'
+   --------------------------------------
+
+   > gas used:            593608 (0x90ec8)
+
+
+
+   Replacing 'Application_Logic_Contract'
+   --------------------------------------
+   
+   > gas used:            723923 (0xb0bd3)
+
+
+   Replacing 'Access_Validator_Contract'
+   -------------------------------------
+
+   > gas used:            1027631 (0xfae2f)
+
+
+
+   Replacing 'Verifier'
+   --------------------
+
+   > gas used:            3393564 (0x33c81c)
+
+
+
+   Replacing 'Registration_Validator_Contract'
+   -------------------------------------------
+
+   > gas used:            1061541 (0x1032a5)
+
+
+
+   > Saving artifacts
+   -------------------------------------
+   > Total cost:     0.020098470150635436 ETH
+
+Summary
+=======
+> Total deployments:   7
+> Final cost:          0.020098470150635436 ETH
+
+
+gas price: 10gwei ethereum price = 3.779,87 
+
+745.243 Gas: $28,17
+493.878 Gas: $18,67
+593.608 Gas: $22,44
+723.923 Gas: $27,36
+1.027.631 Gas: $38,84
+3.393.564 Gas: $128,27
+1.061.541 Gas: $40,12
+
+gas price = 30gwei , matic price = 0,71 usd
+
+745.243 Gas: $0,01587
+493.878 Gas: $0,01052
+593.608 Gas: $0,01264
+723.923 Gas: $0,01542
+1.027.631 Gas: $0,02189
+3.393.564 Gas: $0,07228
+1.061.541 Gas: $0,02261
